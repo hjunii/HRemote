@@ -1,15 +1,13 @@
 package com.android.hremote;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class NsdHelper {
 
     private static final String TAG = "HRemote";
     private static final String SERVICE_TYPE = "_http._tcp.";
@@ -18,47 +16,25 @@ public class MainActivity extends AppCompatActivity {
 
     private NsdManager mNsdManager;
     private NsdManager.DiscoveryListener mDiscoveryListener;
-    private NsdServiceInfo mService = null;
+    private ArrayList<NsdServiceInfo> mServices;
 
-    private  AlertDialog.Builder mBuilder = null;
+    private DiscoveryFragment mContext;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mBuilder = new AlertDialog.Builder(this);
-        mBuilder.setMessage("")
-                .setCancelable(false)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        stopDiscovery();
-                        initializeDiscoveryListener();
-                        mNsdManager.discoverServices(
-                                SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
-                        if (mService == null) {
-                            AlertDialog alert = mBuilder.create();
-                            alert.show();
-                        }
-                    }
-                });
-
-        mNsdManager = (NsdManager) getSystemService(Context.NSD_SERVICE);
+    public NsdHelper(DiscoveryFragment context) {
+        mNsdManager = (NsdManager) context.getContext().getSystemService(Context.NSD_SERVICE);
         initializeResolveListener();
+        mServices = new ArrayList<NsdServiceInfo>();
+        mContext = context;
+    }
 
+    public  void discoveryServices() {
         stopDiscovery();
         initializeDiscoveryListener();
         mNsdManager.discoverServices(
                 SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
-
-        if (mService == null)
-        {
-            AlertDialog alert = mBuilder.create();
-            alert.show();
-        }
     }
 
-    public void initializeResolveListener() {
+    private void initializeResolveListener() {
         mResolveListener = new NsdManager.ResolveListener() {
             @Override
             public void onResolveFailed(NsdServiceInfo serviceInfo, int errorCode) {
@@ -67,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onServiceResolved(NsdServiceInfo serviceInfo) {
                 Log.e(TAG, "Resolve Succeeded. " + serviceInfo);
-                /*if (serviceInfo.getServiceName().equals(mServiceName)) {
-                    Log.d(TAG, "Same IP.");
-                    return;
-                }*/
-                mService = serviceInfo;
+                mServices.add(serviceInfo);
+
+                ((DiscoveryFragment) mContext).clearHost();
+                for (int i = 0; i < mServices.size(); ++i) {
+                    ((DiscoveryFragment) mContext).addHost(mServices.get(i).getHost().toString());
+                }
             }
         };
     }
@@ -87,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Service discovery success" + service);
                 if (!service.getServiceType().equals(SERVICE_TYPE)) {
                     Log.d(TAG, "Unknown Service Type: " + service.getServiceType());
-                } else if (service.getServiceName().equals(mServiceName)) {
-                    Log.d(TAG, "Same machine: " + mServiceName);
                 } else if (service.getServiceName().contains(mServiceName)){
                     mNsdManager.resolveService(service, mResolveListener);
                 }
@@ -96,8 +71,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onServiceLost(NsdServiceInfo service) {
                 Log.e(TAG, "service lost" + service);
-                if (mService == service) {
-                    mService = null;
+                mServices.remove(service);
+
+                ((DiscoveryFragment) mContext).clearHost();
+                for (int i = 0; i < mServices.size(); ++i) {
+                    ((DiscoveryFragment) mContext).addHost(mServices.get(i).getHost().toString());
                 }
             }
             @Override
@@ -116,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopDiscovery() {
+        mServices.clear();
         if (mDiscoveryListener != null) {
             try {
                 mNsdManager.stopServiceDiscovery(mDiscoveryListener);

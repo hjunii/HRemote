@@ -3,6 +3,7 @@ package com.android.hremote;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.view.MenuItem;
 
 public class RemoteActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Fragment mCurrentFregment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class RemoteActivity extends AppCompatActivity
 
         // Commit the transaction
         transaction.commit();
+
+        mCurrentFregment = newFragment;
     }
 
     @Override
@@ -72,7 +77,9 @@ public class RemoteActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_refresh) {
+            if (mCurrentFregment instanceof DiscoveryFragment)
+                ((DiscoveryFragment) mCurrentFregment).refresh();
             return true;
         }
 
