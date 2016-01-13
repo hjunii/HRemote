@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DiscoveryFragment extends Fragment {
     private static final String TAG = "HRemote";
 
-    private ArrayList<String> mHostList = new ArrayList<String>();
+    private ArrayAdapter<String> mAdapter;
     private NsdHelper mNsdHelper;
     private ArrayList<NsdServiceInfo> mServiceList;
 
@@ -26,31 +26,57 @@ public class DiscoveryFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.discovery_fragment, container, false);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                android.R.layout.simple_list_item_1, mHostList);
-
-        mNsdHelper = new NsdHelper(this);
-
-        mNsdHelper.discoveryServices();
+        mAdapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_list_item_1);
 
         ListView listView = (ListView) v.findViewById(R.id.listView);
-        listView.setAdapter(adapter);
+        listView.setAdapter(mAdapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        mNsdHelper = new NsdHelper(this);
+        mNsdHelper.discoveryServices();
 
         return v;
     }
 
-    public void addHost(String name) {
-        mHostList.add(name);
+    public void addHost(final String name)
+    {
+        getActivity().runOnUiThread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.add(name);
+                        //mAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
-    public void clearHost() {
-        mHostList.clear();
+    public void removeHost(final String name)
+    {
+        getActivity().runOnUiThread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.remove(name);
+                        //mAdapter.notifyDataSetChanged();
+                    }
+                });
+    }
+
+    public void clearHost()
+    {
+        getActivity().runOnUiThread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        mAdapter.clear();
+                        //mAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     public void refresh()
     {
-        mHostList.clear();
         mNsdHelper.discoveryServices();
     }
 }

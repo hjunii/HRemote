@@ -6,6 +6,7 @@ import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class NsdHelper {
 
@@ -30,8 +31,14 @@ public class NsdHelper {
     public  void discoveryServices() {
         stopDiscovery();
         initializeDiscoveryListener();
+        ((DiscoveryFragment) mContext).clearHost();
         mNsdManager.discoverServices(
                 SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
+    }
+
+    public ArrayList<NsdServiceInfo> getServices()
+    {
+        return mServices;
     }
 
     private void initializeResolveListener() {
@@ -44,11 +51,7 @@ public class NsdHelper {
             public void onServiceResolved(NsdServiceInfo serviceInfo) {
                 Log.e(TAG, "Resolve Succeeded. " + serviceInfo);
                 mServices.add(serviceInfo);
-
-                ((DiscoveryFragment) mContext).clearHost();
-                for (int i = 0; i < mServices.size(); ++i) {
-                    ((DiscoveryFragment) mContext).addHost(mServices.get(i).getHost().toString());
-                }
+                ((DiscoveryFragment) mContext).addHost(serviceInfo.getServiceName());
             }
         };
     }
@@ -72,11 +75,7 @@ public class NsdHelper {
             public void onServiceLost(NsdServiceInfo service) {
                 Log.e(TAG, "service lost" + service);
                 mServices.remove(service);
-
-                ((DiscoveryFragment) mContext).clearHost();
-                for (int i = 0; i < mServices.size(); ++i) {
-                    ((DiscoveryFragment) mContext).addHost(mServices.get(i).getHost().toString());
-                }
+                ((DiscoveryFragment) mContext).removeHost(service.getServiceName());
             }
             @Override
             public void onDiscoveryStopped(String serviceType) {
