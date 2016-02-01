@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-</LinearLayout>
+    <com.android.hremote.TouchPadView
+        android:layout_width="@dimen/touchpad_width"
+        android:layout_height="@dimen/touchpad_height"
+        android:id="@+id/touchpad"
+        android:layout_gravity="center|bottom"
+        android:background="@drawable/trackpad_bg"
+        android:layout_marginTop="@dimen/touchpad_margin_top"
+        android:layout_marginBottom="@dimen/touchpad_margin_bottom" />
+
+</FrameLayout>

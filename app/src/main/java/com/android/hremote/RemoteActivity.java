@@ -20,6 +20,7 @@ public class RemoteActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment mCurrentFregment;
+    private Menu mRemoteMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class RemoteActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.remote, menu);
+        mRemoteMenu = menu;
         return true;
     }
 
@@ -92,18 +94,30 @@ public class RemoteActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_conn) {
+            // Create new fragment and transaction
+            Fragment newFragment = new DiscoveryFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        } else if (id == R.id.nav_slideshow) {
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(R.id.content_fragment, newFragment);
+            transaction.addToBackStack(null);
 
-        } else if (id == R.id.nav_manage) {
+            // Commit the transaction
+            transaction.commit();
+        } else if (id == R.id.nav_touchpad) {
+            // Create new fragment and transaction
+            Fragment newFragment = new MousePadFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        } else if (id == R.id.nav_share) {
+            // Replace whatever is in the fragment_container view with this fragment,
+            // and add the transaction to the back stack
+            transaction.replace(R.id.content_fragment, newFragment);
+            transaction.addToBackStack(null);
 
-        } else if (id == R.id.nav_send) {
-
+            // Commit the transaction
+            transaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
