@@ -19,7 +19,8 @@ import android.view.MenuItem;
 public class RemoteActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Fragment mCurrentFregment;
+    private DiscoveryFragment mDiscoveryFragment;
+    public MousePadFragment mMousePadFragment;
     private Menu mRemoteMenu;
 
     @Override
@@ -38,19 +39,10 @@ public class RemoteActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Create new fragment and transaction
-        Fragment newFragment = new DiscoveryFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        mDiscoveryFragment = new DiscoveryFragment();
+        mMousePadFragment = new MousePadFragment();
 
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
-        transaction.replace(R.id.content_fragment, newFragment);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
-
-        mCurrentFregment = newFragment;
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
     }
 
     @Override
@@ -80,8 +72,7 @@ public class RemoteActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            if (mCurrentFregment instanceof DiscoveryFragment)
-                ((DiscoveryFragment) mCurrentFregment).refresh();
+            mDiscoveryFragment.refresh();
             return true;
         }
 
@@ -95,29 +86,9 @@ public class RemoteActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_conn) {
-            // Create new fragment and transaction
-            Fragment newFragment = new DiscoveryFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack
-            transaction.replace(R.id.content_fragment, newFragment);
-            transaction.addToBackStack(null);
-
-            // Commit the transaction
-            transaction.commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
         } else if (id == R.id.nav_touchpad) {
-            // Create new fragment and transaction
-            Fragment newFragment = new MousePadFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack
-            transaction.replace(R.id.content_fragment, newFragment);
-            transaction.addToBackStack(null);
-
-            // Commit the transaction
-            transaction.commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mMousePadFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

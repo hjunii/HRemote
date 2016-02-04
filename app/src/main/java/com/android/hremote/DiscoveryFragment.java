@@ -1,6 +1,6 @@
 package com.android.hremote;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.app.FragmentTransaction;
 import android.net.nsd.NsdServiceInfo;
 import android.os.Bundle;
@@ -38,17 +38,7 @@ public class DiscoveryFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Create new fragment and transaction
-                Fragment newFragment = new MousePadFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
-                transaction.replace(R.id.content_fragment, newFragment);
-                transaction.addToBackStack(null);
-
-                // Commit the transaction
-                transaction.commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, ((RemoteActivity) getActivity()).mMousePadFragment).commit();
             }
         });
 

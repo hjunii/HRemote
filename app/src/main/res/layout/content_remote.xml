@@ -12,7 +12,7 @@
     tools:context="com.android.hremote.RemoteActivity"
     tools:showIn="@layout/app_bar_remote">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/content_fragment"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,5 +20,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-    </LinearLayout>
+    </FrameLayout>
 </RelativeLayout>
