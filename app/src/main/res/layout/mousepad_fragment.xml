@@ -10,6 +10,26 @@
         android:layout_gravity="center|bottom"
         android:background="@drawable/trackpad_bg"
         android:layout_marginTop="@dimen/touchpad_margin_top"
-        android:layout_marginBottom="@dimen/touchpad_margin_bottom" />
+        android:layout_marginBottom="@dimen/touchpad_margin_bottom"
+        android:layout_marginLeft="@dimen/touchpad_margin_left"
+        android:layout_marginRight="@dimen/touchpad_margin_right" />
+
+    <ImageButton
+        android:layout_width="@dimen/touchpad_button_width"
+        android:layout_height="@dimen/touchpad_button_height"
+        android:id="@+id/touchpad_left"
+        android:layout_gravity="left|bottom"
+        android:background="@drawable/trackpad_left"
+        android:layout_marginBottom="@dimen/touchpad_button_margin_bottom"
+        android:layout_marginLeft="@dimen/touchpad_margin_left" />
+
+    <ImageButton
+        android:layout_width="@dimen/touchpad_button_width"
+        android:layout_height="@dimen/touchpad_button_height"
+        android:id="@+id/touchpad_right"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/trackpad_right"
+        android:layout_marginBottom="@dimen/touchpad_button_margin_bottom"
+        android:layout_marginRight="@dimen/touchpad_margin_left" />
 
 </FrameLayout>
