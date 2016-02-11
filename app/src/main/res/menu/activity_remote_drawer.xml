@@ -10,6 +10,9 @@
             android:id="@+id/nav_touchpad"
             android:icon="@drawable/menu_trackpad"
             android:title="TouchPad" />
+        <item
+            android:id="@+id/nav_keyboard"
+            android:title="Keyboard" />
     </group>
 
 </menu>

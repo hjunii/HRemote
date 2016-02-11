@@ -2,6 +2,8 @@ package com.android.hremote;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.design.widget.FloatingActionButton;
@@ -21,26 +23,32 @@ public class RemoteActivity extends AppCompatActivity
 
     private DiscoveryFragment mDiscoveryFragment;
     public MousePadFragment mMousePadFragment;
+    public KeyboardFragment mKeyboardFragment;
+    private ActionBarDrawerToggle mDToggle;
     private Menu mRemoteMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_remote);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        mDToggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+        drawer.setDrawerListener(mDToggle);
+        mDToggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         mDiscoveryFragment = new DiscoveryFragment();
         mMousePadFragment = new MousePadFragment();
+        mKeyboardFragment = new KeyboardFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
     }
@@ -85,14 +93,24 @@ public class RemoteActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id == R.id.nav_keyboard) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+        else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
         if (id == R.id.nav_conn) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
         } else if (id == R.id.nav_touchpad) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mMousePadFragment).commit();
+        } else if (id == R.id.nav_keyboard) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mKeyboardFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawers();
+
         return true;
     }
 }

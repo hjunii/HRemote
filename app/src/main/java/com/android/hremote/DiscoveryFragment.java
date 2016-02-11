@@ -1,5 +1,6 @@
 package com.android.hremote;
 
+import android.content.pm.ActivityInfo;
 import android.support.v4.app.Fragment;
 import android.app.FragmentTransaction;
 import android.net.nsd.NsdServiceInfo;

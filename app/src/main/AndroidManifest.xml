@@ -15,8 +15,9 @@
         <activity
             android:name=".RemoteActivity"
             android:label="@string/title_activity_remote"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize" >
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
