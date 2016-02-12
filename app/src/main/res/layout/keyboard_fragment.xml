@@ -8,234 +8,235 @@
     android:paddingTop="20dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:clickable="false">
 
     <TableRow android:layout_height="wrap_content"
         android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_f1"
-            android:background="@drawable/ic_1_1_key_f1"
+            android:background="@drawable/b_1_1_key_f1"
             android:layout_column="1" />
         <ImageButton
             android:id="@+id/key_f2"
-            android:background="@drawable/ic_1_2_key_f2" />
+            android:background="@drawable/b_1_2_key_f2" />
         <ImageButton
             android:id="@+id/key_f3"
-            android:background="@drawable/ic_1_3_key_f3" />
+            android:background="@drawable/b_1_3_key_f3" />
         <ImageButton
             android:id="@+id/key_f4"
-            android:background="@drawable/ic_1_4_key_f4" />
+            android:background="@drawable/b_1_4_key_f4" />
         <ImageButton
             android:id="@+id/key_f5"
-            android:background="@drawable/ic_1_5_key_f5" />
+            android:background="@drawable/b_1_5_key_f5" />
         <ImageButton
             android:id="@+id/key_f6"
-            android:background="@drawable/ic_1_6_key_f6" />
+            android:background="@drawable/b_1_6_key_f6" />
         <ImageButton
             android:id="@+id/key_f7"
-            android:background="@drawable/ic_1_7_key_f7" />
+            android:background="@drawable/b_1_7_key_f7" />
         <ImageButton
             android:id="@+id/key_f8"
-            android:background="@drawable/ic_1_8_key_f8" />
+            android:background="@drawable/b_1_8_key_f8" />
         <ImageButton
             android:id="@+id/key_f9"
-            android:background="@drawable/ic_1_9_key_f9" />
+            android:background="@drawable/b_1_9_key_f9" />
         <ImageButton
             android:id="@+id/key_f10"
-            android:background="@drawable/ic_1_10_key_f10" />
+            android:background="@drawable/b_1_10_key_f10" />
         <ImageButton
             android:id="@+id/key_back"
-            android:background="@drawable/ic_1_11_key_back" />
+            android:background="@drawable/b_1_11_key_back" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_esc"
-            android:background="@drawable/ic_2_1_key_esc" />
+            android:background="@drawable/b_2_1_key_esc" />
         <ImageButton
             android:id="@+id/key_1"
-            android:background="@drawable/ic_2_2_key_1" />
+            android:background="@drawable/b_2_2_key_1" />
         <ImageButton
             android:id="@+id/key_2"
-            android:background="@drawable/ic_2_3_key_2" />
+            android:background="@drawable/b_2_3_key_2" />
         <ImageButton
             android:id="@+id/key_3"
-            android:background="@drawable/ic_2_4_key_3" />
+            android:background="@drawable/b_2_4_key_3" />
         <ImageButton
             android:id="@+id/key_4"
-            android:background="@drawable/ic_2_5_key_4" />
+            android:background="@drawable/b_2_5_key_4" />
         <ImageButton
             android:id="@+id/key_5"
-            android:background="@drawable/ic_2_6_key_5" />
+            android:background="@drawable/b_2_6_key_5" />
         <ImageButton
             android:id="@+id/key_6"
-            android:background="@drawable/ic_2_7_key_6" />
+            android:background="@drawable/b_2_7_key_6" />
         <ImageButton
             android:id="@+id/key_7"
-            android:background="@drawable/ic_2_8_key_7" />
+            android:background="@drawable/b_2_8_key_7" />
         <ImageButton
             android:id="@+id/key_8"
-            android:background="@drawable/ic_2_9_key_8" />
+            android:background="@drawable/b_2_9_key_8" />
         <ImageButton
             android:id="@+id/key_9"
-            android:background="@drawable/ic_2_10_key_9" />
+            android:background="@drawable/b_2_10_key_9" />
         <ImageButton
             android:id="@+id/key_0"
-            android:background="@drawable/ic_2_11_key_0" />
+            android:background="@drawable/b_2_11_key_0" />
         <ImageButton
             android:id="@+id/key_grave"
-            android:background="@drawable/ic_2_12_key_grave" />
+            android:background="@drawable/b_2_12_key_grave" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_tab"
-            android:background="@drawable/ic_3_1_key_tab" />
+            android:background="@drawable/b_3_1_key_tab" />
         <ImageButton
             android:id="@+id/key_q"
-            android:background="@drawable/ic_3_2_key_q" />
+            android:background="@drawable/b_3_2_key_q" />
         <ImageButton
             android:id="@+id/key_w"
-            android:background="@drawable/ic_3_3_key_w" />
+            android:background="@drawable/b_3_3_key_w" />
         <ImageButton
             android:id="@+id/key_e"
-            android:background="@drawable/ic_3_4_key_e" />
+            android:background="@drawable/b_3_4_key_e" />
         <ImageButton
             android:id="@+id/key_r"
-            android:background="@drawable/ic_3_5_key_r" />
+            android:background="@drawable/b_3_5_key_r" />
         <ImageButton
             android:id="@+id/key_t"
-            android:background="@drawable/ic_3_6_key_t" />
+            android:background="@drawable/b_3_6_key_t" />
         <ImageButton
             android:id="@+id/key_y"
-            android:background="@drawable/ic_3_7_key_y" />
+            android:background="@drawable/b_3_7_key_y" />
         <ImageButton
             android:id="@+id/key_u"
-            android:background="@drawable/ic_3_8_key_u" />
+            android:background="@drawable/b_3_8_key_u" />
         <ImageButton
             android:id="@+id/key_i"
-            android:background="@drawable/ic_3_9_key_i" />
+            android:background="@drawable/b_3_9_key_i" />
         <ImageButton
             android:id="@+id/key_o"
-            android:background="@drawable/ic_3_10_key_o" />
+            android:background="@drawable/b_3_10_key_o" />
         <ImageButton
             android:id="@+id/key_p"
-            android:background="@drawable/ic_3_11_key_p" />
+            android:background="@drawable/b_3_11_key_p" />
         <ImageButton
             android:id="@+id/key_bslash"
-            android:background="@drawable/ic_3_12_key_bslash" />
+            android:background="@drawable/b_3_12_key_bslash" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_caps"
-            android:background="@drawable/ic_4_1_key_caps" />
+            android:background="@drawable/b_4_1_key_caps" />
         <ImageButton
             android:id="@+id/key_a"
-            android:background="@drawable/ic_4_2_key_a" />
+            android:background="@drawable/b_4_2_key_a" />
         <ImageButton
             android:id="@+id/key_s"
-            android:background="@drawable/ic_4_3_key_s" />
+            android:background="@drawable/b_4_3_key_s" />
         <ImageButton
             android:id="@+id/key_d"
-            android:background="@drawable/ic_4_4_key_d" />
+            android:background="@drawable/b_4_4_key_d" />
         <ImageButton
             android:id="@+id/key_f"
-            android:background="@drawable/ic_4_5_key_f" />
+            android:background="@drawable/b_4_5_key_f" />
         <ImageButton
             android:id="@+id/key_g"
-            android:background="@drawable/ic_4_6_key_g" />
+            android:background="@drawable/b_4_6_key_g" />
         <ImageButton
             android:id="@+id/key_h"
-            android:background="@drawable/ic_4_7_key_h" />
+            android:background="@drawable/b_4_7_key_h" />
         <ImageButton
             android:id="@+id/key_j"
-            android:background="@drawable/ic_4_8_key_j" />
+            android:background="@drawable/b_4_8_key_j" />
         <ImageButton
             android:id="@+id/key_k"
-            android:background="@drawable/ic_4_9_key_k" />
+            android:background="@drawable/b_4_9_key_k" />
         <ImageButton
             android:id="@+id/key_l"
-            android:background="@drawable/ic_4_10_key_l" />
+            android:background="@drawable/b_4_10_key_l" />
         <ImageButton
             android:id="@+id/key_colon"
-            android:background="@drawable/ic_4_11_key_colon" />
+            android:background="@drawable/b_4_11_key_colon" />
         <ImageButton
             android:id="@+id/key_quotes"
-            android:background="@drawable/ic_4_12_key_quotes" />
+            android:background="@drawable/b_4_12_key_quotes" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_shift"
-            android:background="@drawable/ic_5_1_key_shift" />
+            android:background="@drawable/b_5_1_key_shift" />
         <ImageButton
             android:id="@+id/key_z"
-            android:background="@drawable/ic_5_2_key_z" />
+            android:background="@drawable/b_5_2_key_z" />
         <ImageButton
             android:id="@+id/key_x"
-            android:background="@drawable/ic_5_3_key_x" />
+            android:background="@drawable/b_5_3_key_x" />
         <ImageButton
             android:id="@+id/key_c"
-            android:background="@drawable/ic_5_4_key_c" />
+            android:background="@drawable/b_5_4_key_c" />
         <ImageButton
             android:id="@+id/key_v"
-            android:background="@drawable/ic_5_5_key_v" />
+            android:background="@drawable/b_5_5_key_v" />
         <ImageButton
             android:id="@+id/key_b"
-            android:background="@drawable/ic_5_6_key_b" />
+            android:background="@drawable/b_5_6_key_b" />
         <ImageButton
             android:id="@+id/key_n"
-            android:background="@drawable/ic_5_7_key_n" />
+            android:background="@drawable/b_5_7_key_n" />
         <ImageButton
             android:id="@+id/key_m"
-            android:background="@drawable/ic_5_8_key_m" />
+            android:background="@drawable/b_5_8_key_m" />
         <ImageButton
             android:id="@+id/key_comma"
-            android:background="@drawable/ic_5_9_key_comma" />
+            android:background="@drawable/b_5_9_key_comma" />
         <ImageButton
             android:id="@+id/key_pariod"
-            android:background="@drawable/ic_5_10_key_period" />
+            android:background="@drawable/b_5_10_key_period" />
         <ImageButton
             android:id="@+id/key_enter"
-            android:background="@drawable/ic_5_11_key_enter"
+            android:background="@drawable/b_5_11_key_enter"
             android:layout_span="2" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_ctrl"
-            android:background="@drawable/ic_6_1_key_ctrl" />
+            android:background="@drawable/b_6_1_key_ctrl" />
         <ImageButton
             android:id="@+id/key_alt"
-            android:background="@drawable/ic_6_2_key_alt" />
+            android:background="@drawable/b_6_2_key_alt" />
         <ImageButton
             android:id="@+id/key_minus"
-            android:background="@drawable/ic_6_3_key_minus" />
+            android:background="@drawable/b_6_3_key_minus" />
         <ImageButton
             android:id="@+id/key_equal"
-            android:background="@drawable/ic_6_4_key_equal" />
+            android:background="@drawable/b_6_4_key_equal" />
         <ImageButton
             android:id="@+id/key_hanja"
-            android:background="@drawable/ic_6_5_key_hanja" />
+            android:background="@drawable/b_6_5_key_hanja" />
         <ImageButton
             android:id="@+id/key_space"
-            android:background="@drawable/ic_6_6_key_space"
+            android:background="@drawable/b_6_6_key_space"
             android:layout_span="2" />
         <ImageButton
             android:id="@+id/key_hangul"
-            android:background="@drawable/ic_6_7_key_hangul" />
+            android:background="@drawable/b_6_7_key_hangul" />
         <ImageButton
-            android:id="@+id/key_lbasket"
-            android:background="@drawable/ic_6_8_key_lbracket" />
+            android:id="@+id/key_lbracket"
+            android:background="@drawable/b_6_8_key_lbracket" />
         <ImageButton
-            android:id="@+id/key_rbasket"
-            android:background="@drawable/ic_6_9_key_rbracket" />
+            android:id="@+id/key_rbracket"
+            android:background="@drawable/b_6_9_key_rbracket" />
         <ImageButton
             android:id="@+id/key_slash"
-            android:background="@drawable/ic_6_10_key_slash" />
+            android:background="@drawable/b_6_10_key_slash" />
         <ImageButton
             android:id="@+id/key_del"
-            android:background="@drawable/ic_6_11_key_del" />
+            android:background="@drawable/b_6_11_key_del" />
     </TableRow>
 </TableLayout>

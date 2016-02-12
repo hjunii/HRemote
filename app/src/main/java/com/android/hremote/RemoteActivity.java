@@ -26,6 +26,7 @@ public class RemoteActivity extends AppCompatActivity
     public KeyboardFragment mKeyboardFragment;
     private ActionBarDrawerToggle mDToggle;
     private Menu mRemoteMenu;
+    private int mSelectItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,17 @@ public class RemoteActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDToggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+
+                if (mSelectItem == R.id.nav_keyboard) {
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                }
+            }
+        };
+
         drawer.setDrawerListener(mDToggle);
         mDToggle.syncState();
 
@@ -51,6 +62,7 @@ public class RemoteActivity extends AppCompatActivity
         mKeyboardFragment = new KeyboardFragment();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
+        mSelectItem = R.id.nav_conn;
     }
 
     @Override
@@ -91,25 +103,21 @@ public class RemoteActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        mSelectItem = item.getItemId();
 
-        if (id == R.id.nav_keyboard) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
-        else {
+        if (mSelectItem != R.id.nav_keyboard)
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
 
-        if (id == R.id.nav_conn) {
+        if (mSelectItem== R.id.nav_conn) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mDiscoveryFragment).commit();
-        } else if (id == R.id.nav_touchpad) {
+        } else if (mSelectItem == R.id.nav_touchpad) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mMousePadFragment).commit();
-        } else if (id == R.id.nav_keyboard) {
+        } else if (mSelectItem == R.id.nav_keyboard) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, mKeyboardFragment).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawers();
+        drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }
