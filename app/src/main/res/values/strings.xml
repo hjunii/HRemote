@@ -7,6 +7,12 @@
 
     <string name="action_refresh">Refresh</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="connection">Connection</string>
+
+    <string name="touchpad">TouchPad</string>
+
+    <string name="keyboard">Keyboard</string>
+
+    <string name="key">key</string>
+
 </resources>

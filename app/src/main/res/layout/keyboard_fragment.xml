@@ -16,227 +16,296 @@
         <ImageButton
             android:id="@+id/key_f1"
             android:background="@drawable/b_1_1_key_f1"
-            android:layout_column="1" />
+            android:layout_column="1"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f2"
-            android:background="@drawable/b_1_2_key_f2" />
+            android:background="@drawable/b_1_2_key_f2"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f3"
-            android:background="@drawable/b_1_3_key_f3" />
+            android:background="@drawable/b_1_3_key_f3"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f4"
-            android:background="@drawable/b_1_4_key_f4" />
+            android:background="@drawable/b_1_4_key_f4"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f5"
-            android:background="@drawable/b_1_5_key_f5" />
+            android:background="@drawable/b_1_5_key_f5"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f6"
-            android:background="@drawable/b_1_6_key_f6" />
+            android:background="@drawable/b_1_6_key_f6"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f7"
-            android:background="@drawable/b_1_7_key_f7" />
+            android:background="@drawable/b_1_7_key_f7"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f8"
-            android:background="@drawable/b_1_8_key_f8" />
+            android:background="@drawable/b_1_8_key_f8"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f9"
-            android:background="@drawable/b_1_9_key_f9" />
+            android:background="@drawable/b_1_9_key_f9"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f10"
-            android:background="@drawable/b_1_10_key_f10" />
+            android:background="@drawable/b_1_10_key_f10"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_back"
-            android:background="@drawable/b_1_11_key_back" />
+            android:background="@drawable/b_1_11_key_back"
+            android:contentDescription="@string/key" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_esc"
-            android:background="@drawable/b_2_1_key_esc" />
+            android:background="@drawable/b_2_1_key_esc"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_1"
-            android:background="@drawable/b_2_2_key_1" />
+            android:background="@drawable/b_2_2_key_1"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_2"
-            android:background="@drawable/b_2_3_key_2" />
+            android:background="@drawable/b_2_3_key_2"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_3"
-            android:background="@drawable/b_2_4_key_3" />
+            android:background="@drawable/b_2_4_key_3"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_4"
-            android:background="@drawable/b_2_5_key_4" />
+            android:background="@drawable/b_2_5_key_4"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_5"
-            android:background="@drawable/b_2_6_key_5" />
+            android:background="@drawable/b_2_6_key_5"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_6"
-            android:background="@drawable/b_2_7_key_6" />
+            android:background="@drawable/b_2_7_key_6"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_7"
-            android:background="@drawable/b_2_8_key_7" />
+            android:background="@drawable/b_2_8_key_7"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_8"
-            android:background="@drawable/b_2_9_key_8" />
+            android:background="@drawable/b_2_9_key_8"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_9"
-            android:background="@drawable/b_2_10_key_9" />
+            android:background="@drawable/b_2_10_key_9"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_0"
-            android:background="@drawable/b_2_11_key_0" />
+            android:background="@drawable/b_2_11_key_0"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_grave"
-            android:background="@drawable/b_2_12_key_grave" />
+            android:background="@drawable/b_2_12_key_grave"
+            android:contentDescription="@string/key" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_tab"
-            android:background="@drawable/b_3_1_key_tab" />
+            android:background="@drawable/b_3_1_key_tab"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_q"
-            android:background="@drawable/b_3_2_key_q" />
+            android:background="@drawable/b_3_2_key_q"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_w"
-            android:background="@drawable/b_3_3_key_w" />
+            android:background="@drawable/b_3_3_key_w"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_e"
-            android:background="@drawable/b_3_4_key_e" />
+            android:background="@drawable/b_3_4_key_e"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_r"
-            android:background="@drawable/b_3_5_key_r" />
+            android:background="@drawable/b_3_5_key_r"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_t"
-            android:background="@drawable/b_3_6_key_t" />
+            android:background="@drawable/b_3_6_key_t"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_y"
-            android:background="@drawable/b_3_7_key_y" />
+            android:background="@drawable/b_3_7_key_y"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_u"
-            android:background="@drawable/b_3_8_key_u" />
+            android:background="@drawable/b_3_8_key_u"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_i"
-            android:background="@drawable/b_3_9_key_i" />
+            android:background="@drawable/b_3_9_key_i"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_o"
-            android:background="@drawable/b_3_10_key_o" />
+            android:background="@drawable/b_3_10_key_o"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_p"
-            android:background="@drawable/b_3_11_key_p" />
+            android:background="@drawable/b_3_11_key_p"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_bslash"
-            android:background="@drawable/b_3_12_key_bslash" />
+            android:background="@drawable/b_3_12_key_bslash"
+            android:contentDescription="@string/key" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_caps"
-            android:background="@drawable/b_4_1_key_caps" />
+            android:background="@drawable/b_4_1_key_caps"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_a"
-            android:background="@drawable/b_4_2_key_a" />
+            android:background="@drawable/b_4_2_key_a"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_s"
-            android:background="@drawable/b_4_3_key_s" />
+            android:background="@drawable/b_4_3_key_s"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_d"
-            android:background="@drawable/b_4_4_key_d" />
+            android:background="@drawable/b_4_4_key_d"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_f"
-            android:background="@drawable/b_4_5_key_f" />
+            android:background="@drawable/b_4_5_key_f"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_g"
-            android:background="@drawable/b_4_6_key_g" />
+            android:background="@drawable/b_4_6_key_g"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_h"
-            android:background="@drawable/b_4_7_key_h" />
+            android:background="@drawable/b_4_7_key_h"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_j"
-            android:background="@drawable/b_4_8_key_j" />
+            android:background="@drawable/b_4_8_key_j"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_k"
-            android:background="@drawable/b_4_9_key_k" />
+            android:background="@drawable/b_4_9_key_k"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_l"
-            android:background="@drawable/b_4_10_key_l" />
+            android:background="@drawable/b_4_10_key_l"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_colon"
-            android:background="@drawable/b_4_11_key_colon" />
+            android:background="@drawable/b_4_11_key_colon"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_quotes"
-            android:background="@drawable/b_4_12_key_quotes" />
+            android:background="@drawable/b_4_12_key_quotes"
+            android:contentDescription="@string/key" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_shift"
-            android:background="@drawable/b_5_1_key_shift" />
+            android:background="@drawable/b_5_1_key_shift"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_z"
-            android:background="@drawable/b_5_2_key_z" />
+            android:background="@drawable/b_5_2_key_z"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_x"
-            android:background="@drawable/b_5_3_key_x" />
+            android:background="@drawable/b_5_3_key_x"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_c"
-            android:background="@drawable/b_5_4_key_c" />
+            android:background="@drawable/b_5_4_key_c"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_v"
-            android:background="@drawable/b_5_5_key_v" />
+            android:background="@drawable/b_5_5_key_v"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_b"
-            android:background="@drawable/b_5_6_key_b" />
+            android:background="@drawable/b_5_6_key_b"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_n"
-            android:background="@drawable/b_5_7_key_n" />
+            android:background="@drawable/b_5_7_key_n"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_m"
-            android:background="@drawable/b_5_8_key_m" />
+            android:background="@drawable/b_5_8_key_m"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_comma"
-            android:background="@drawable/b_5_9_key_comma" />
+            android:background="@drawable/b_5_9_key_comma"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_pariod"
-            android:background="@drawable/b_5_10_key_period" />
+            android:background="@drawable/b_5_10_key_period"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_enter"
             android:background="@drawable/b_5_11_key_enter"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:contentDescription="@string/key" />
     </TableRow>
 
     <TableRow android:layout_weight="1">
         <ImageButton
             android:id="@+id/key_ctrl"
-            android:background="@drawable/b_6_1_key_ctrl" />
+            android:background="@drawable/b_6_1_key_ctrl"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_alt"
-            android:background="@drawable/b_6_2_key_alt" />
+            android:background="@drawable/b_6_2_key_alt"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_minus"
-            android:background="@drawable/b_6_3_key_minus" />
+            android:background="@drawable/b_6_3_key_minus"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_equal"
-            android:background="@drawable/b_6_4_key_equal" />
+            android:background="@drawable/b_6_4_key_equal"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_hanja"
-            android:background="@drawable/b_6_5_key_hanja" />
+            android:background="@drawable/b_6_5_key_hanja"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_space"
             android:background="@drawable/b_6_6_key_space"
-            android:layout_span="2" />
+            android:layout_span="2"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_hangul"
-            android:background="@drawable/b_6_7_key_hangul" />
+            android:background="@drawable/b_6_7_key_hangul"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_lbracket"
-            android:background="@drawable/b_6_8_key_lbracket" />
+            android:background="@drawable/b_6_8_key_lbracket"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_rbracket"
-            android:background="@drawable/b_6_9_key_rbracket" />
+            android:background="@drawable/b_6_9_key_rbracket"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_slash"
-            android:background="@drawable/b_6_10_key_slash" />
+            android:background="@drawable/b_6_10_key_slash"
+            android:contentDescription="@string/key" />
         <ImageButton
             android:id="@+id/key_del"
-            android:background="@drawable/b_6_11_key_del" />
+            android:background="@drawable/b_6_11_key_del"
+            android:contentDescription="@string/key" />
     </TableRow>
 </TableLayout>
