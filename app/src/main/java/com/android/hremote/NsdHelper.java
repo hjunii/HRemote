@@ -6,32 +6,31 @@ import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Map;
 
-public class NsdHelper {
+class NsdHelper {
 
     private static final String TAG = "HRemote";
     private static final String SERVICE_TYPE = "_http._tcp.";
-    private String mServiceName = "HRemoteService";
+    private final String mServiceName = "HRemoteService";
     private NsdManager.ResolveListener mResolveListener;
 
-    private NsdManager mNsdManager;
+    private final NsdManager mNsdManager;
     private NsdManager.DiscoveryListener mDiscoveryListener;
-    private ArrayList<NsdServiceInfo> mServices;
+    private final ArrayList<NsdServiceInfo> mServices;
 
-    private DiscoveryFragment mContext;
+    private final DiscoveryFragment mContext;
 
     public NsdHelper(DiscoveryFragment context) {
         mNsdManager = (NsdManager) context.getContext().getSystemService(Context.NSD_SERVICE);
         initializeResolveListener();
-        mServices = new ArrayList<NsdServiceInfo>();
+        mServices = new ArrayList<>();
         mContext = context;
     }
 
     public  void discoveryServices() {
         stopDiscovery();
         initializeDiscoveryListener();
-        ((DiscoveryFragment) mContext).clearHost();
+        mContext.clearHost();
         mNsdManager.discoverServices(
                 SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
     }
@@ -51,7 +50,7 @@ public class NsdHelper {
             public void onServiceResolved(NsdServiceInfo serviceInfo) {
                 Log.e(TAG, "Resolve Succeeded. " + serviceInfo);
                 mServices.add(serviceInfo);
-                ((DiscoveryFragment) mContext).addHost(serviceInfo.getServiceName());
+                mContext.addHost(serviceInfo.getServiceName());
             }
         };
     }
@@ -75,7 +74,7 @@ public class NsdHelper {
             public void onServiceLost(NsdServiceInfo service) {
                 Log.e(TAG, "service lost" + service);
                 mServices.remove(service);
-                ((DiscoveryFragment) mContext).removeHost(service.getServiceName());
+                mContext.removeHost(service.getServiceName());
             }
             @Override
             public void onDiscoveryStopped(String serviceType) {

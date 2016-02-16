@@ -1,13 +1,7 @@
 package com.android.hremote;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.preference.PreferenceFragment;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,9 +17,7 @@ public class RemoteActivity extends AppCompatActivity
 
     private DiscoveryFragment mDiscoveryFragment;
     public MousePadFragment mMousePadFragment;
-    public KeyboardFragment mKeyboardFragment;
-    private ActionBarDrawerToggle mDToggle;
-    private Menu mRemoteMenu;
+    private KeyboardFragment mKeyboardFragment;
     private int mSelectItem;
 
     @Override
@@ -39,7 +31,7 @@ public class RemoteActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDToggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             public void onDrawerClosed(View view) {
@@ -51,8 +43,8 @@ public class RemoteActivity extends AppCompatActivity
             }
         };
 
-        drawer.setDrawerListener(mDToggle);
-        mDToggle.syncState();
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -79,7 +71,6 @@ public class RemoteActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.remote, menu);
-        mRemoteMenu = menu;
         return true;
     }
 

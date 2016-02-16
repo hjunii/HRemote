@@ -15,4 +15,7 @@
 
     <string name="key">key</string>
 
+    <string name="left_button">Left Button</string>
+    <string name="right_button">Right Button</string>
+
 </resources>
