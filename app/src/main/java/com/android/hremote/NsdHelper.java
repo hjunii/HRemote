@@ -5,6 +5,7 @@ import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 
+import java.net.Socket;
 import java.util.ArrayList;
 
 class NsdHelper {
@@ -20,6 +21,8 @@ class NsdHelper {
 
     private final DiscoveryFragment mContext;
 
+    static private Socket mSocket = null;
+
     public NsdHelper(DiscoveryFragment context) {
         mNsdManager = (NsdManager) context.getContext().getSystemService(Context.NSD_SERVICE);
         initializeResolveListener();
@@ -34,6 +37,10 @@ class NsdHelper {
         mNsdManager.discoverServices(
                 SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
     }
+
+    static void setSocket(Socket socket) { mSocket = socket; }
+
+    static Socket getSocket() { return  mSocket; }
 
     public ArrayList<NsdServiceInfo> getServices()
     {

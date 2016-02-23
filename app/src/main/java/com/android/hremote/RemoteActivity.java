@@ -29,6 +29,7 @@ public class RemoteActivity extends AppCompatActivity
         setContentView(R.layout.activity_remote);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.not_connected));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

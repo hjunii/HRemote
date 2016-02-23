@@ -18,4 +18,7 @@
     <string name="left_button">Left Button</string>
     <string name="right_button">Right Button</string>
 
+    <string name="connected">Connected</string>
+    <string name="not_connected">Not Connected</string>
+
 </resources>

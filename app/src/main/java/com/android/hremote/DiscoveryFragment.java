@@ -1,5 +1,6 @@
 package com.android.hremote;
 
+import android.net.nsd.NsdServiceInfo;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ConnectException;
+import java.net.Socket;
 
 public class DiscoveryFragment extends Fragment {
 
@@ -30,7 +36,23 @@ public class DiscoveryFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, ((RemoteActivity) getActivity()).mMousePadFragment).commit();
+
+                NsdServiceInfo info = mNsdHelper.getServices().get(position);
+
+                try {
+                    NsdHelper.setSocket(new Socket(info.getHost(), info.getPort()));
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, ((RemoteActivity) getActivity()).mMousePadFragment).commit();
+                    if (getActivity() != null)
+                    {
+                        ((RemoteActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.connected));
+                    }
+                } catch (ConnectException ce) {
+                    ce.printStackTrace();
+                } catch (IOException ie) {
+                    ie.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

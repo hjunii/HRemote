@@ -18,4 +18,7 @@
     <string name="left_button">Left Button</string>
     <string name="right_button">Right Button</string>
 
+    <string name="connected">연걸됨</string>
+    <string name="not_connected">연결끊김</string>
+
 </resources>
