@@ -10,9 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ConnectException;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class DiscoveryFragment extends Fragment {
@@ -40,16 +39,42 @@ public class DiscoveryFragment extends Fragment {
                 NsdServiceInfo info = mNsdHelper.getServices().get(position);
 
                 try {
-                    NsdHelper.setSocket(new Socket(info.getHost(), info.getPort()));
+                    class ConnectionThread extends Thread {
+                        private InetAddress mHost;
+                        private int mPort;
+                        boolean mSuccess;
+
+                        public ConnectionThread(InetAddress host, int port) {
+                            mHost = host;
+                            mPort = port;
+                            mSuccess = false;
+                        }
+
+                        public void run() {
+                            try {
+                                NsdHelper.setSocket(new Socket(mHost, mPort));
+                                mSuccess = true;
+                            }
+                            catch (IOException e) {
+                            }
+                        }
+
+                        private boolean isSuccess() {
+                            return mSuccess;
+                        }
+                    }
+
+                    ConnectionThread thread = new ConnectionThread(info.getHost(), info.getPort());
+                    thread.start();;
+                    thread.join();
+                    if (!thread.isSuccess())
+                        return;
+
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content_fragment, ((RemoteActivity) getActivity()).mMousePadFragment).commit();
                     if (getActivity() != null)
                     {
                         ((RemoteActivity)getActivity()).getSupportActionBar().setTitle(getResources().getString(R.string.connected));
                     }
-                } catch (ConnectException ce) {
-                    ce.printStackTrace();
-                } catch (IOException ie) {
-                    ie.printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -75,13 +100,15 @@ public class DiscoveryFragment extends Fragment {
 
     public void removeHost(final String name)
     {
-        getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.remove(name);
-                    }
-                });
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            mAdapter.remove(name);
+                        }
+                    });
+        }
     }
 
     public void clearHost()
