@@ -89,13 +89,15 @@ public class DiscoveryFragment extends Fragment {
 
     public void addHost(final String name)
     {
-        getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.add(name);
-                    }
-                });
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            mAdapter.add(name);
+                        }
+                    });
+        }
     }
 
     public void removeHost(final String name)
@@ -113,13 +115,15 @@ public class DiscoveryFragment extends Fragment {
 
     public void clearHost()
     {
-        getActivity().runOnUiThread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        mAdapter.clear();
-                    }
-                });
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                        }
+                    });
+        }
     }
 
     public void refresh()
