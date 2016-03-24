@@ -5,6 +5,7 @@ import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 
+import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -38,7 +39,18 @@ class NsdHelper {
                 SERVICE_TYPE, NsdManager.PROTOCOL_DNS_SD, mDiscoveryListener);
     }
 
-    static void setSocket(Socket socket) { mSocket = socket; }
+    static void setSocket(Socket socket)
+    {
+        if (mSocket != null) {
+            try {
+                mSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        mSocket = socket;
+    }
 
     static Socket getSocket() { return  mSocket; }
 
@@ -74,7 +86,13 @@ class NsdHelper {
                 if (!service.getServiceType().equals(SERVICE_TYPE)) {
                     Log.d(TAG, "Unknown Service Type: " + service.getServiceType());
                 } else if (service.getServiceName().contains(mServiceName)){
-                    mNsdManager.resolveService(service, mResolveListener);
+                    try {
+                        mNsdManager.resolveService(service, mResolveListener);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.e(TAG, e.getMessage());
+                    }
                 }
             }
             @Override

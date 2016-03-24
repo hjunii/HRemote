@@ -47,30 +47,15 @@ public class TouchPadView extends View {
                 y = (int) event.getY();
             }
             else if (event.getAction() == MotionEvent.ACTION_UP) {
-                Message msgX = mHandler.obtainMessage();
-                Message msgY = mHandler.obtainMessage();
-                Message msgSYN = mHandler.obtainMessage();
+                Message msg = mHandler.obtainMessage();
 
-                Bundle bundleX = new Bundle();
-                bundleX.putShort("type", EV_REL);
-                bundleX.putShort("code", REL_X);
-                bundleX.putInt("value", (int)event.getX() - x);
-                Bundle bundleY = new Bundle();
-                bundleY.putShort("type", EV_REL);
-                bundleY.putShort("code", REL_Y);
-                bundleY.putInt("value", (int)event.getY() - y);
-                Bundle bundleSYN = new Bundle();
-                bundleSYN.putShort("type", EV_SYN);
-                bundleSYN.putShort("code", (short) 0);
-                bundleSYN.putInt("value", 0);
+                Bundle bundle = new Bundle();
+                bundle.putShort("absX",(short)(event.getX() - x));
+                bundle.putShort("absY", (short)(event.getY() - y));
 
-                msgX.setData(bundleX);
-                msgY.setData(bundleY);
-                msgSYN.setData(bundleSYN);
+                msg.setData(bundle);
 
-                mHandler.sendMessage(msgX);
-                mHandler.sendMessage(msgY);
-                mHandler.sendMessage(msgSYN);
+                mHandler.sendMessage(msg);
             }
 
             return true;
@@ -82,15 +67,18 @@ public class TouchPadView extends View {
         public void handleMessage(Message msg) {
             Bundle bundle = msg.getData();
 
-            short type = bundle.getShort("type");
-            short code = bundle.getShort("code");
-            int value = bundle.getInt("value");
+            short absX = bundle.getShort("absX");
+            short absY = bundle.getShort("absY");
+            short wheel = 0;
 
             try {
                 DataOutputStream os = new DataOutputStream(NsdHelper.getSocket().getOutputStream());
-                os.writeShort(type);
-                os.writeShort(code);
-                os.writeInt(value);
+                os.writeBoolean(false);
+                os.writeBoolean(false);
+                os.writeBoolean(false);
+                os.writeShort(absX);
+                os.writeShort(absY);
+                os.writeShort(wheel);
             } catch (UnknownHostException e) {
             } catch (IOException e) {
             }
